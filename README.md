@@ -97,3 +97,22 @@ $ sail artisan make:request ToDo/UpdateRequest
 $ sail artisan make:request ToDoDetail/StoreRequest
 $ sail artisan make:request ToDoDetail/UpdateRequest
 ```
+
+### migrateファイルの変更
+- to_dosテーブルにフィールド追加
+```
+$table->string('title');
+```
+
+- to_do_detailsテーブルにフィールド追加
+```
+$table->foreignId('to_do_id')
+->references('id')
+->on('to_dos');
+$table->text('name');
+$table->boolean('completed_flag')->default(false);
+```
+- 設定実施
+```
+$ sail artisan migrate
+```
