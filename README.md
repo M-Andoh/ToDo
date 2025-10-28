@@ -130,3 +130,9 @@ database/seeders/DatabaseSeeder.php
 ```
 $ sail artisan db:seed
 ```
+
+### Modefファイルの変更
+
+app/Models/ToDo.php  
+app/Models/ToDoDetail.php
+

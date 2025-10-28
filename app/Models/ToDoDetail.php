@@ -9,4 +9,9 @@ class ToDoDetail extends Model
 {
     /** @use HasFactory<\Database\Factories\ToDoDetailFactory> */
     use HasFactory;
+    
+    public function toDo()
+    {
+        return $this->belongsTo(ToDo::class);
+    }
 }
