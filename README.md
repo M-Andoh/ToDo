@@ -151,3 +151,8 @@ $ sail npm install -D react react-dom @types/react @types/react-dom
 $ sail npm install -D @vitejs/plugin-react
 ```
 
+### Typescriptのインストール
+```
+sail npm install -D typescript
+sail npx tsc --init --jsx react-jsx
+```
