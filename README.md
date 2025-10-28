@@ -74,3 +74,5 @@ $ sail artisan breeze:install
 $ sail composer require askdkc/breezejp --dev
 $ sail artisan breezejp
 ```
+
+http://localhost に接続
