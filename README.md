@@ -81,3 +81,19 @@ http://localhost に接続
 ```
 $ sail artisan install:api
 ```
+
+
+## ToDo/ToDoDetailモデルの作成
+### ファイルの準備
+  migrateファイル  
+  seedファイル  
+  factoryファイル  
+  controlファイル(resource)  
+```
+$ sail artisan make:model ToDo -msfr
+$ sail artisan make:model ToDoDetail -msfr
+$ sail artisan make:request ToDo/StoreRequest
+$ sail artisan make:request ToDo/UpdateRequest
+$ sail artisan make:request ToDoDetail/StoreRequest
+$ sail artisan make:request ToDoDetail/UpdateRequest
+```
