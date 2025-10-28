@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ToDo\StoreRequest;
+use App\Http\Requests\ToDo\UpdateRequest;
 use App\Models\ToDo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ToDoController extends Controller
 {
@@ -12,7 +15,13 @@ class ToDoController extends Controller
      */
     public function index()
     {
-        //
+        Log::error('index');
+
+        // ToDoの一覧を取得する。
+        $todo = ToDo::get();
+
+        // ToDoの一覧を返却する
+        return $todo;
     }
 
     /**
@@ -26,9 +35,16 @@ class ToDoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        // 新規にToDoモデルを作成する
+        $todo = new ToDo();
+
+        // ToDoモデルの値を格納する
+        $todo->title =  $request->get('title');
+
+        // ToDoモデルを保存する
+        $todo->save();
     }
 
     /**
@@ -50,16 +66,27 @@ class ToDoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ToDo $toDo)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        // $idに紐づくToDoモデルを取得する
+        $todo = ToDo::find($id);
+
+        // ToDoモデルの値を格納する
+        $todo->title =  $request->get('title');
+
+        // ToDoモデルを保存する
+        $todo->save();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ToDo $toDo)
+    public function destroy($id)
     {
-        //
+        // $idに紐づくToDoモデルを取得する
+        $todo = ToDo::find($id);
+
+        // ToDoモデルを削除する
+        $todo->delete();
     }
 }

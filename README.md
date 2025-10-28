@@ -131,8 +131,14 @@ database/seeders/DatabaseSeeder.php
 $ sail artisan db:seed
 ```
 
-### Modefファイルの変更
-
+### Modeファイルの変更
 app/Models/ToDo.php  
-app/Models/ToDoDetail.php
+app/Models/ToDoDetail.php　  
 
+## APIの設定
+### ToDo/ToDoDetailルートの設定
+routes/api.php
+
+### コントローラーの作成
+app\Http\Controllers\ToDoController;
+app\Http\Controllers\ToDoDetailController;
