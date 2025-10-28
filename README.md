@@ -116,3 +116,8 @@ $table->boolean('completed_flag')->default(false);
 ```
 $ sail artisan migrate
 ```
+
+### factoryファイルの変更
+
+database/factories/ToDoFactory.php　  
+database/factories/ToDoDetailFactory.php  

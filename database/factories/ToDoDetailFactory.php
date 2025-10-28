@@ -17,7 +17,8 @@ class ToDoDetailFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->realText(10),
+            'completed_flag' => $this->faker->boolean(),
         ];
     }
 }
