@@ -76,3 +76,8 @@ $ sail artisan breezejp
 ```
 
 http://localhost に接続
+
+## API有効化
+```
+$ sail artisan install:api
+```
