@@ -125,3 +125,8 @@ database/factories/ToDoDetailFactory.php
 ### Seederファイルの変更
 
 database/seeders/DatabaseSeeder.php
+
+### Seeder実行
+```
+$ sail artisan db:seed
+```
