@@ -65,7 +65,7 @@ return [
     |
     */
 
-    #'timezone' => 'UTC',
+    #'timezone' => 'Asia/Tokyo',
     'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*

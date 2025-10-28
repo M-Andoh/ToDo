@@ -62,3 +62,15 @@ $ sail artisan migrate
 
 http://localhost に接続
 
+## breeze インストール
+### breeze 初期設定
+```
+$ sail composer require laravel/breeze --dev
+$ sail artisan breeze:install
+(Blade with Alpine, dark mode, PHPUnit を選択)
+```
+### breez 日本語化
+```
+$ sail composer require askdkc/breezejp --dev
+$ sail artisan breezejp
+```
