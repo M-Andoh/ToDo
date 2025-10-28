@@ -45,3 +45,20 @@ $ sail up -d
 (mysqlを選択：ご自由に）   
 $ sail artisan key:generate
 ```
+
+### db準備
+- database/migrations/0001_01_01_000000_create_users_table.php の変更   
+
+以下を追加してみました。
+```
+$table->tinyInteger('role_id')->default(0);
+```
+
+- 動作確認
+```
+$ sail up -d
+$ sail artisan migrate
+```
+
+http://localhost に接続
+
