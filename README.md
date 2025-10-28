@@ -121,3 +121,7 @@ $ sail artisan migrate
 
 database/factories/ToDoFactory.php　  
 database/factories/ToDoDetailFactory.php  
+
+### Seederファイルの変更
+
+database/seeders/DatabaseSeeder.php
