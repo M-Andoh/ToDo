@@ -142,3 +142,12 @@ routes/api.php
 ### コントローラーの作成
 app\Http\Controllers\ToDoController;
 app\Http\Controllers\ToDoDetailController;
+
+## React のインストール
+### モジュールのインストール
+```
+$ sail npm install
+$ sail npm install -D react react-dom @types/react @types/react-dom
+$ sail npm install -D @vitejs/plugin-react
+```
+
