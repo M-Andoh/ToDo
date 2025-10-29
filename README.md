@@ -181,3 +181,9 @@ resources/ts/app.tsx を追加
 resources/components/index.tsx を追加  
 
 ### ルーティングの変更
+```
+Route::get('/', function () {
+    return view('index');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+```
