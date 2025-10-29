@@ -187,3 +187,8 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 ```
+
+### MaterialUIをインストールする
+```
+$ npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+```
