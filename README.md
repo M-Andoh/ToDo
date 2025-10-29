@@ -174,5 +174,10 @@ export default defineConfig({
     ],
 });
 ```
+
 ### resources/views/index.blade.phpを作成
-resources/views/welcome.blade.phpを削除
+resources/views/index.blade.php を追加  
+resources/ts/app.tsx を追加  
+resources/components/index.tsx を追加  
+
+### ルーティングの変更
