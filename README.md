@@ -156,3 +156,23 @@ $ sail npm install -D @vitejs/plugin-react
 sail npm install -D typescript
 sail npx tsc --init --jsx react-jsx
 ```
+
+### Viteの設定
+vite.config.js の修正
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react'; //追加する
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/ts/app.tsx'], // ts/app.tsxに変更 ※tsディレクトリは後ほど作成する
+            refresh: true,
+        }),
+        react(), //追加する
+    ],
+});
+```
+### resources/views/index.blade.phpを作成
+resources/views/welcome.blade.phpを削除
