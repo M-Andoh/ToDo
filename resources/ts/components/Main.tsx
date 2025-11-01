@@ -13,7 +13,6 @@ import { unstable_composeClasses } from "@mui/material";
 const client = new QueryClient();
 
 const Main = () => {
-    console.log('main');
     return (
         <Box>
             <Navigation />

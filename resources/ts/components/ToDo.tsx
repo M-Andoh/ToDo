@@ -13,8 +13,7 @@ type ToDoProps = {
     todo: ToDoType;
 };
 
-const ToDo:React.FC<ToDoProps> = (props: ToDoProps) => {
-    console.log(props.todo);
+const ToDo = (props: ToDoProps) => {
     return (
         <Grid>
             <Card>
@@ -23,12 +22,7 @@ const ToDo:React.FC<ToDoProps> = (props: ToDoProps) => {
                     <List>
                         {
                             props.todo.to_do_details.map((value) => {
-                                return (<ToDoDetail
-                                    id={value.id}
-                                    name={value.name}
-                                    completed_flag={value.completed_flag}>
-
-                                </ToDoDetail>);
+                                return (<ToDoDetail detail={value} />);
                             })
                         }
                     </List>
@@ -36,7 +30,6 @@ const ToDo:React.FC<ToDoProps> = (props: ToDoProps) => {
                 </CardContent>
             </Card>
         </Grid>
-
     );
 };
 

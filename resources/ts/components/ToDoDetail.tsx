@@ -10,11 +10,14 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import type { ToDoDetailType } from "../types/ToDoTypes.js";
 
+type ToDoProps = {
+    detail: ToDoDetailType;
+};
 
-const ToDoDetail = (props: ToDoDetailType) => {
+const ToDoDetail = (props: ToDoProps) => {
     return (
         <ListItem
-            key={props.id}
+            key={props.detail.id}
             secondaryAction={
                 <IconButton edge="end" aria-label="delete">
                     <DeleteIcon />
@@ -26,7 +29,7 @@ const ToDoDetail = (props: ToDoDetailType) => {
                 <ListItemIcon>
                     <Checkbox edge="start" />
                 </ListItemIcon>
-                <ListItemText primary={props.name} />
+                <ListItemText primary={props.detail.name} />
             </ListItemButton>
         </ListItem>
     );
