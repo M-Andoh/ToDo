@@ -37,10 +37,10 @@ const Home = () => {
     return (
         <Grid container spacing={2}>
             {
-                toDoList.map((t) => {
+                toDoList.map((todo) => {
                     return (
-                        <Grid size={4}>
-                            <ToDo todo={t} />
+                        <Grid key={todo.id} size={4}>
+                            <ToDo key={todo.id} todo={todo} />
                         </Grid>
                     )
                 })

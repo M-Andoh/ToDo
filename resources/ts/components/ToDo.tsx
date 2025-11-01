@@ -21,8 +21,8 @@ const ToDo = (props: ToDoProps) => {
                 <CardContent>
                     <List>
                         {
-                            props.todo.to_do_details.map((value) => {
-                                return (<ToDoDetail detail={value} />);
+                            props.todo.to_do_details.map((detail) => {
+                                return (<ToDoDetail key={detail.id} detail={detail} />);
                             })
                         }
                     </List>
