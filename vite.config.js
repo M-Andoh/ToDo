@@ -8,6 +8,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/ts/app.tsx', // ts/app.tsxに変更 ※tsディレクトリは後ほど作成する
+                'resources/sass/todo.scss',
                 'resources/js/app.js'], 
             refresh: true,
         }),

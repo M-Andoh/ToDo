@@ -15,10 +15,8 @@ class ToDoController extends Controller
      */
     public function index()
     {
-        Log::error('index');
-
         // ToDoの一覧を取得する。
-        $todo = ToDo::get();
+        $todo = ToDo::with('toDoDetails')->get();
 
         // ToDoの一覧を返却する
         return $todo;
