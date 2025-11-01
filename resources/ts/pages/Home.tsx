@@ -8,6 +8,8 @@ import axios from 'axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useThemeProps } from '@mui/material';
 import { type ToDoType } from '../types/ToDoTypes.js';
+import useGetToDoList from '../hooks/Todo/useGetTodoList.js';
+import useCurrentToDoList from '../hooks/Todo/useCurrentToList.js';
 
 
 const getToDoList = async (): Promise<ToDoType[]> => {
@@ -19,11 +21,7 @@ const getToDoList = async (): Promise<ToDoType[]> => {
 };
 
 const Home = () => {
-    const queryClient = useQueryClient();
-    const { data, isLoading, error } = useQuery<ToDoType[]>({
-        queryKey: ["todo"],
-        queryFn: getToDoList,
-    }, queryClient);
+    const { data, isLoading, error }  = useGetToDoList();
     if (isLoading) {
         return (<p>Now Loading...</p>);
     }
@@ -31,12 +29,11 @@ const Home = () => {
         return (<p>エラー: {error.message}</p>);
     }
 
-    const toDoList = queryClient.getQueryData<ToDoType[]>(["todo"]);
-    console.log('home:result =');
-    console.log(toDoList);
+    const toDoList = useCurrentToDoList();
     if (toDoList == undefined) {
         return (<p>undefined...</p>);
     };
+ 
     return (
         <Grid container spacing={2}>
             {
