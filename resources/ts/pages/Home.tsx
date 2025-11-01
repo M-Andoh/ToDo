@@ -8,8 +8,8 @@ import axios from 'axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useThemeProps } from '@mui/material';
 import type { ToDoType } from '../types/ToDoTypes.js';
-import useGetToDoList from '../hooks/Todo/useGetTodoList.js';
-import useCurrentToDoList from '../hooks/Todo/useCurrentToList.js';
+import useGetToDoList from '../hocks/TodoList/useGetTodoList.js';
+import useCurrentToDoList from '../hocks/TodoList/useCurrentToList.js';
 
 
 const getToDoList = async (): Promise<ToDoType[]> => {
