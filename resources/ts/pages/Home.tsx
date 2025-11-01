@@ -7,7 +7,7 @@ import ToDo from '../components/ToDo.js';
 import axios from 'axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useThemeProps } from '@mui/material';
-import { type ToDoType } from '../types/ToDoTypes.js';
+import type { ToDoType } from '../types/ToDoTypes.js';
 import useGetToDoList from '../hooks/Todo/useGetTodoList.js';
 import useCurrentToDoList from '../hooks/Todo/useCurrentToList.js';
 

@@ -7,7 +7,7 @@ import {
     List,
 } from "@mui/material";
 import ToDoDetail from "./ToDoDetail.js";
-import { type ToDoType } from "../types/ToDoTypes.js";
+import type { ToDoType } from "../types/ToDoTypes.js";
 
 type ToDoProps = {
     todo: ToDoType;
