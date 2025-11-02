@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import ToDoDetail from "./ToDoDetail.js";
 import type { ToDoType } from "../types/ToDoTypes.js";
-import useUpdateToDoMutateTask from "../hocks/ToDo/useUpdateToDoMutateTask.js";
+import useUpdateToDo from "../hocks/ToDo/useUpdateToDo.js";
 
 type ToDoProps = {
     todo: ToDoType;
@@ -24,7 +24,7 @@ const ToDo = (props: ToDoProps) => {
 
     const [timer, setTimer] = useState<number>(Number.MIN_VALUE);
 
-    const { updateToDoMutate } = useUpdateToDoMutateTask();
+    const { updateToDoMutate } = useUpdateToDo();
     const eventUpdateTodo = (event: any) => {
         console.log("eventUpdateTodo start");
         if (timer != Number.MIN_VALUE) clearTimeout(timer);

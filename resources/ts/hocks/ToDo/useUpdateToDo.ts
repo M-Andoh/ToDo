@@ -17,7 +17,7 @@ export const usePostTodo = async (todo: ToDoType) => {
     return response.data;
 };
 
-const useUpdateToDoMutateTask = () => {
+const useUpdateToDo = () => {
     const updateToDoMutate = useMutation({
         mutationFn: usePostTodo,
         onSuccess: (data) => { },
@@ -30,4 +30,4 @@ const useUpdateToDoMutateTask = () => {
     return { updateToDoMutate };
 }
 
-export default useUpdateToDoMutateTask;
+export default useUpdateToDo;
