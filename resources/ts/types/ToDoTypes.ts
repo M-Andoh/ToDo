@@ -5,7 +5,7 @@ export type ToDoType = {
     to_do_details: ToDoDetailType[];
 };
 
-export type ToDoDetailType ={
+export type ToDoDetailType = { 
     id: number;
     name: string;
     completed_flag: boolean;

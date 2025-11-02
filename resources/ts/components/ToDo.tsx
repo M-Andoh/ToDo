@@ -1,23 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Card,
     CardContent,
     CardHeader,
     Grid,
     List,
+    TextField,
 } from "@mui/material";
 import ToDoDetail from "./ToDoDetail.js";
 import type { ToDoType } from "../types/ToDoTypes.js";
+import useUpdateToDoMutateTask from "../hocks/ToDo/useUpdateToDoMutateTask.js";
 
 type ToDoProps = {
     todo: ToDoType;
 };
 
 const ToDo = (props: ToDoProps) => {
+    const todo = {
+        id: props.todo.id,
+        title: props.todo.title,
+        to_do_details: props.todo.to_do_details,
+    };
+
+    const [timer, setTimer] = useState<number>(Number.MIN_VALUE);
+
+    const { updateToDoMutate } = useUpdateToDoMutateTask();
+    const eventUpdateTodo = (event: any) => {
+        console.log("eventUpdateTodo start");
+        if (timer != Number.MIN_VALUE) clearTimeout(timer);
+        const newTimer = setTimeout(() => {
+            let data: ToDoType = {
+                ...todo,
+                title: event.target.value,
+            };
+            console.log("eventUpdateTodo update");
+            updateToDoMutate.mutate(data);
+        }, 500);
+
+        setTimer(newTimer);
+        console.log("eventUpdateTodo end");
+    }
+
     return (
         <Grid>
             <Card>
-                <CardHeader title={props.todo.title} />
+                <TextField
+                    variant="standard"
+                    margin="dense"
+                    defaultValue={props.todo.title}
+                    fullWidth
+                    onChange={eventUpdateTodo}
+                />
                 <CardContent>
                     <List>
                         {
