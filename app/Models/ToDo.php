@@ -9,7 +9,9 @@ class ToDo extends Model
 {
     /** @use HasFactory<\Database\Factories\ToDoFactory> */
     use HasFactory;
-    
+
+    protected $fillable = ['title', ];
+
     public function toDoDetails()
     {
         return $this->hasMany(ToDoDetail::class);

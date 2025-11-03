@@ -17,27 +17,35 @@ type ToDoDetailProps = {
 };
 
 const ToDoDetail = (props: ToDoDetailProps) => {
-    const todo = {
+    const detail = {
         id: props.detail.id,
-        title: props.detail.name,
+        name: props.detail.name,
         completed_flag: props.detail.completed_flag,
     };
 
     const [timer, setTimer] = useState<number>(Number.MIN_VALUE);
 
     const { updateToDoDetailMutate } = useUpdateToDoDetail();
+
     const eventUpdateDetailTodo = (event: any) => {
-        console.log("eventUpdateTodo start");
         if (timer != Number.MIN_VALUE) clearTimeout(timer);
         const newTimer = setTimeout(() => {
             let data: ToDoDetailType = {
-                ...todo,
+                ...detail,
                 name: event.target.value,
             };
             updateToDoDetailMutate.mutate(data);
         }, 500);
 
         setTimer(newTimer);
+    }
+
+    const eventCheckDetailTodo = (event: any) => {
+        let data: ToDoDetailType = {
+            ...detail,
+            completed_flag: event.target.checked,
+        };
+        updateToDoDetailMutate.mutate(data);
     }
 
     return (
@@ -52,7 +60,10 @@ const ToDoDetail = (props: ToDoDetailProps) => {
         >
             <ListItemButton>
                 <ListItemIcon>
-                    <Checkbox edge="start" />
+                    <Checkbox
+                        edge="start"
+                        defaultChecked={props.detail.completed_flag}
+                        onChange={eventCheckDetailTodo}/>
                 </ListItemIcon>
                 <TextField
                     variant="standard"
