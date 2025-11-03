@@ -26,19 +26,16 @@ const ToDo = (props: ToDoProps) => {
 
     const { updateToDoMutate } = useUpdateToDo();
     const eventUpdateTodo = (event: any) => {
-        console.log("eventUpdateTodo start");
         if (timer != Number.MIN_VALUE) clearTimeout(timer);
         const newTimer = setTimeout(() => {
             let data: ToDoType = {
                 ...todo,
                 title: event.target.value,
             };
-            console.log("eventUpdateTodo update");
             updateToDoMutate.mutate(data);
         }, 500);
 
         setTimer(newTimer);
-        console.log("eventUpdateTodo end");
     }
 
     return (
