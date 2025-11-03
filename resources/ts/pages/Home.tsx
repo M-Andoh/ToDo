@@ -8,8 +8,8 @@ import axios from 'axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useThemeProps } from '@mui/material';
 import type { ToDoType } from '../types/ToDoTypes.js';
-import useGetToDoList from '../hocks/TodoList/useGetTodoList.js';
-import useCurrentToDoList from '../hocks/TodoList/useCurrentToList.js';
+import useGetToDoList from '../hocks/ToDoList/useGetTodoList.js';
+import useCurrentToDoList from '../hocks/ToDoList/useCurrentToList.js';
 
 
 const getToDoList = async (): Promise<ToDoType[]> => {
@@ -37,7 +37,7 @@ const Home = () => {
     return (
         <Grid container spacing={2}>
             {
-                toDoList.map((todo) => {
+                toDoList.map((todo : ToDoType) => {
                     return (
                         <Grid key={todo.id} size={4}>
                             <ToDo key={todo.id} todo={todo} />
