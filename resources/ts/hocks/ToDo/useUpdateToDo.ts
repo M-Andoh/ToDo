@@ -2,7 +2,7 @@ import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
 import type { ToDoType } from "../../types/ToDoTypes.js";
 
-export const usePostTodo = async (todo: ToDoType) => {
+export const usePatchTodo = async (todo: ToDoType) => {
     const response = await axios.request<ToDoType>({
         url: `/api/todo/${todo.id}`,
         method: "PATCH",
@@ -21,7 +21,7 @@ const useUpdateToDo = () => {
     const queryClient = useQueryClient();
 
     const updateToDoMutate = useMutation({
-        mutationFn: usePostTodo,
+        mutationFn: usePatchTodo,
         onSuccess: (data) => {
          },
         onError: (error) => {
