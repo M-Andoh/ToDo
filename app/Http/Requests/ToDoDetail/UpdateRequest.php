@@ -22,8 +22,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required | string',
-            'completed_flag' => 'required | boolean',
+            'to_do_id' => 'required | exists:to_dos,id',
+            'name' => 'nullable | string',
+            'completed_flag' => 'nullable | boolean',
         ];
     }
 }

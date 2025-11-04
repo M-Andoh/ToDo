@@ -6,15 +6,6 @@ export const useDeleteTodoDetail = async (detail: ToDoDetailType) => {
     const response = await axios.request<ToDoDetailType>({
         url: `/api/todo/detail/${detail.id}`,
         method: "DELETE",
-        //data: {
-        //    id: detail.id,
-        //    to_do_id: detail.to_do_id,
-        //    name: detail.name,
-        //    completed_flag: detail.completed_flag,
-        //},
-        //headers: {
-        //    'Content-Type': 'application/json',
-        //},
     });
     return response.data;
 };

@@ -6,13 +6,6 @@ export const useDeleteTodo = async (todo: ToDoType) => {
     const response = await axios.request<ToDoType>({
         url: `/api/todo/${todo.id}`,
         method: "DELETE",
-        //data: {
-        //    id: todo.id,
-        //    title: todo.title,
-        //},
-        //headers: {
-        //    'Content-Type': 'application/json',
-        //},
     });
     return response.data;
 };

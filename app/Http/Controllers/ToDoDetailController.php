@@ -6,6 +6,8 @@ use App\Http\Requests\ToDoDetail\StoreRequest;
 use App\Http\Requests\ToDoDetail\UpdateRequest;
 use App\Models\ToDoDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class ToDoDetailController extends Controller
 {
@@ -34,13 +36,16 @@ class ToDoDetailController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        Log::debug("store");
+        Log::debug($request);
+
         // 新規にToDoDetailモデルを作成する
         $detail = new ToDoDetail();
 
         // ToDoDetailモデルの値を格納する
         $detail->to_do_id =  $request->get('to_do_id');
         $detail->name =  $request->get('name');
-        $detail->completed_flag =  $request->get('completed_flag');
+        $detail->completed_flag =  $request->boolean('completed_flag', false);
 
         // ToDoDetailモデルを保存する
         $detail->save();

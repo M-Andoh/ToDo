@@ -9,11 +9,12 @@ import {
     List,
     TextField,
 } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Delete, AddCircle } from '@mui/icons-material';
 import ToDoDetail from "./ToDoDetail.js";
-import type { ToDoType } from "../types/ToDoTypes.js";
+import type { ToDoDetailType, ToDoType } from "../types/ToDoTypes.js";
 import useUpdateToDo from "../hocks/ToDo/useUpdateToDo.js";
 import useDeleteToDo from "../hocks/ToDo/useDeleteToDo.js";
+import useAddToDoDetail from "../hocks/ToDoDetail/useAddToDoDetail.js";
 
 type ToDoProps = {
     todo: ToDoType;
@@ -30,6 +31,7 @@ const ToDo = (props: ToDoProps) => {
 
     const { updateToDoMutate } = useUpdateToDo();
     const { deleteToDoMutate } = useDeleteToDo();
+    const { addToDoDetailMutate } = useAddToDoDetail();
 
     /** 名称変更イベント */
     const eventUpdateTodo = (event: any) => {
@@ -49,6 +51,16 @@ const ToDo = (props: ToDoProps) => {
     const eventDeleteDetailTodo = (event: any) => {
         //const queryClient = useQueryClient();
         deleteToDoMutate.mutate(todo);
+        //queryClient.invalidateQueries({queryKey:["todo"]});
+    }
+
+    /** 追加イベント */
+    const eventAddDetailTodo = (event: any) => {
+        //const queryClient = useQueryClient();
+        const detail :ToDoDetailType ={       
+            to_do_id: todo.id,
+        };
+        addToDoDetailMutate.mutate(detail);
         //queryClient.invalidateQueries({queryKey:["todo"]});
     }
 
@@ -75,10 +87,18 @@ const ToDo = (props: ToDoProps) => {
 
                 <CardActions>
                     <IconButton
+                        edge="start"
+                        aria-label="add"
+                        color="primary"
+                        onClick={eventAddDetailTodo}>
+                        <AddCircle />
+                    </IconButton>
+
+                    <IconButton
                         edge="end"
                         aria-label="delete"
                         onClick={eventDeleteDetailTodo}>
-                        <DeleteIcon />
+                        <Delete />
                     </IconButton>
 
                 </CardActions>

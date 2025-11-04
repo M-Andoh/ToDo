@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('to_do_id')
                 ->references('id')
                 ->on('to_dos');
-            $table->text('name');
-            $table->boolean('completed_flag')->default(false);
+            $table->string('name')->nullable();
+            $table->boolean('completed_flag')->nullable()->default(false);
             $table->timestamps();
         });
     }
