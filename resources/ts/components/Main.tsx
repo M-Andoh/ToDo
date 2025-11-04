@@ -9,6 +9,7 @@ import Example from "../pages/Example.js";
 import Home from "../pages/Home.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { unstable_composeClasses } from "@mui/material";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const client = new QueryClient();
 
@@ -24,6 +25,7 @@ const Main = () => {
                         <Route path="/" element={<Home />} />
                     </Routes>
                 </main>
+                <ReactQueryDevtools initialIsOpen={false} />
                 </QueryClientProvider>
             </Router>
 

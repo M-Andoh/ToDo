@@ -12,7 +12,7 @@ const getToDoList = async (): Promise<ToDoType[]> => {
 
 const useGetToDoList = () => {
     const queryClient = useQueryClient();
-    const { data, isLoading, error } = useQuery<ToDoType[]>({
+    const { data, error, isLoading, isSuccess, isError } = useQuery<ToDoType[]>({
         queryKey: ["todo"],
         queryFn: getToDoList,
     }, queryClient);
