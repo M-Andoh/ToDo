@@ -216,6 +216,7 @@ $ npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
 
 ### ToDoDetailを削除する
 
+### ToDoを削除する
 
 
 

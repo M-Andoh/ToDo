@@ -5,7 +5,7 @@ import type { ToDoDetailType, ToDoType } from "../../types/ToDoTypes.js";
 export const useDeleteTodoDetail = async (detail: ToDoDetailType) => {
     const response = await axios.request<ToDoDetailType>({
         url: `/api/todo/detail/${detail.id}`,
-        method: "Delete",
+        method: "DELETE",
         //data: {
         //    id: detail.id,
         //    to_do_id: detail.to_do_id,
