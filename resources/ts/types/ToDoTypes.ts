@@ -7,6 +7,7 @@ export type ToDoType = {
 
 export type ToDoDetailType = { 
     id: number;
+    to_do_id: number;
     name: string;
     completed_flag: boolean;
 }

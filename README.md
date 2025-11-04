@@ -212,6 +212,8 @@ $ npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
 
 ### ToDo更新時Optimistic Update
 
+### ToDoDetail更新時Optimistic Update
+
 
 
 

@@ -5,7 +5,7 @@ import type { ToDoType } from "../../types/ToDoTypes.js";
 export const usePostTodo = async (todo: ToDoType) => {
     const response = await axios.request<ToDoType>({
         url: `/api/todo/${todo.id}`,
-        method: "PUT",
+        method: "PATCH",
         data: {
             id: todo.id,
             title: todo.title,

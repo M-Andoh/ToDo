@@ -19,6 +19,7 @@ type ToDoDetailProps = {
 const ToDoDetail = (props: ToDoDetailProps) => {
     const detail = {
         id: props.detail.id,
+        to_do_id: props.detail.to_do_id,
         name: props.detail.name,
         completed_flag: props.detail.completed_flag,
     };
@@ -62,7 +63,7 @@ const ToDoDetail = (props: ToDoDetailProps) => {
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
-                        defaultChecked={props.detail.completed_flag}
+                        checked={props.detail.completed_flag}
                         onChange={eventCheckDetailTodo}/>
                 </ListItemIcon>
                 <TextField
