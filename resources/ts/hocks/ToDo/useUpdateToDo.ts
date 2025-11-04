@@ -23,17 +23,17 @@ const useUpdateToDo = () => {
     const updateToDoMutate = useMutation({
         mutationFn: usePatchTodo,
         onSuccess: (data) => {
-         },
+        },
         onError: (error) => {
             console.error('Error:', error);
-            alert('登録に失敗しました。');
+            alert('登録に失敗しました。' + error.message);
         },
         onMutate: async (data) => {
             await queryClient.cancelQueries({ queryKey: ["todo"], });
             const prevToDos = queryClient.getQueryData<ToDoType[]>(["todo"]);
-            queryClient.setQueryData<ToDoType[]>(["todo"], (oldToDo) => 
-                oldToDo?.map((old)=>{
-                    if(old.id==data.id){
+            queryClient.setQueryData<ToDoType[]>(["todo"], (oldToDo) =>
+                oldToDo?.map((old) => {
+                    if (old.id == data.id) {
                         return {
                             ...old,
                             title: data.title,

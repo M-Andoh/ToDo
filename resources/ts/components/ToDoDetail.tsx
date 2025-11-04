@@ -11,10 +11,13 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import type { ToDoDetailType } from "../types/ToDoTypes.js";
 import useUpdateToDoDetail from "../hocks/ToDoDetail/useUpdateToDoDetail.js";
+import useDeleteToDoDetail from "../hocks/ToDoDetail/useDeleteToDoDetail.js";
+import { useQueryClient } from "@tanstack/react-query";
 
 type ToDoDetailProps = {
     detail: ToDoDetailType;
 };
+
 
 const ToDoDetail = (props: ToDoDetailProps) => {
     const detail = {
@@ -25,9 +28,10 @@ const ToDoDetail = (props: ToDoDetailProps) => {
     };
 
     const [timer, setTimer] = useState<number>(Number.MIN_VALUE);
-
     const { updateToDoDetailMutate } = useUpdateToDoDetail();
+    const { deleteToDoDetailMutate } = useDeleteToDoDetail();
 
+    /** 名称変更イベント */
     const eventUpdateDetailTodo = (event: any) => {
         if (timer != Number.MIN_VALUE) clearTimeout(timer);
         const newTimer = setTimeout(() => {
@@ -41,6 +45,7 @@ const ToDoDetail = (props: ToDoDetailProps) => {
         setTimer(newTimer);
     }
 
+    /** 　チェックボックス変更イベント */
     const eventCheckDetailTodo = (event: any) => {
         let data: ToDoDetailType = {
             ...detail,
@@ -49,11 +54,21 @@ const ToDoDetail = (props: ToDoDetailProps) => {
         updateToDoDetailMutate.mutate(data);
     }
 
+    /** 削除イベント */
+    const eventDeleteDetailTodo = (event: any) => {
+        //const queryClient = useQueryClient();
+        deleteToDoDetailMutate.mutate(detail);
+        //queryClient.invalidateQueries({queryKey:["todo"]});
+    }
+    
     return (
         <ListItem
             key={props.detail.id}
             secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={eventDeleteDetailTodo}>
                     <DeleteIcon />
                 </IconButton>
             }
@@ -64,7 +79,7 @@ const ToDoDetail = (props: ToDoDetailProps) => {
                     <Checkbox
                         edge="start"
                         checked={props.detail.completed_flag}
-                        onChange={eventCheckDetailTodo}/>
+                        onChange={eventCheckDetailTodo} />
                 </ListItemIcon>
                 <TextField
                     variant="standard"

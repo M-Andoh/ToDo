@@ -28,7 +28,6 @@ const Main = () => {
                 <ReactQueryDevtools initialIsOpen={false} />
                 </QueryClientProvider>
             </Router>
-
         </Box>
     );
 }

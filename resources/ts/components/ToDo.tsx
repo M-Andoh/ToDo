@@ -37,7 +37,7 @@ const ToDo = (props: ToDoProps) => {
 
         setTimer(newTimer);
     }
-
+    
     return (
         <Grid>
             <Card>
