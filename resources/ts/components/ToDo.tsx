@@ -21,7 +21,7 @@ type ToDoProps = {
 };
 
 const ToDo = (props: ToDoProps) => {
-    const todo = {
+    const todo : ToDoType = {
         id: props.todo.id,
         title: props.todo.title,
         to_do_details: props.todo.to_do_details,
@@ -57,7 +57,7 @@ const ToDo = (props: ToDoProps) => {
     /** 追加イベント */
     const eventAddDetailTodo = (event: any) => {
         //const queryClient = useQueryClient();
-        const detail :ToDoDetailType ={       
+        const detail : ToDoDetailType ={       
             to_do_id: todo.id,
         };
         addToDoDetailMutate.mutate(detail);
@@ -77,7 +77,7 @@ const ToDo = (props: ToDoProps) => {
                 <CardContent>
                     <List>
                         {
-                            props.todo.to_do_details.map((detail) => {
+                            props.todo.to_do_details?.map((detail) => {
                                 return (<ToDoDetail key={detail.id} detail={detail} />);
                             })
                         }

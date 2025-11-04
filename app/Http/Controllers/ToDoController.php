@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ToDo\StoreRequest;
 use App\Http\Requests\ToDo\UpdateRequest;
 use App\Models\ToDo;
+use App\Models\ToDoDetail;
 use Illuminate\Container\Attributes\Log as AttributesLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+
 
 class ToDoController extends Controller
 {
@@ -42,8 +45,15 @@ class ToDoController extends Controller
         // ToDoモデルの値を格納する
         $todo->title =  $request->get('title');
 
+        $detail = new ToDoDetail();
+        $detail->name = null;
+        $detail->completed_flag = false;
+
         // ToDoモデルを保存する
-        $todo->save();
+        DB::transaction(function () use ($todo, $detail) {
+            $todo->save();
+            $todo->toDoDetails()->save($detail);
+        });
     }
 
     /**

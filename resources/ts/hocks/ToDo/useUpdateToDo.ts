@@ -31,8 +31,8 @@ const useUpdateToDo = () => {
         onMutate: async (data) => {
             await queryClient.cancelQueries({ queryKey: ["todo"], });
             const prevToDos = queryClient.getQueryData<ToDoType[]>(["todo"]);
-            queryClient.setQueryData<ToDoType[]>(["todo"], (oldToDo) =>
-                oldToDo?.map((old) => {
+            queryClient.setQueryData<ToDoType[]>(["todo"], (oldToDo) => {
+                oldToDo?.map((old : ToDoType) => {
                     if (old.id == data.id) {
                         return {
                             ...old,
@@ -40,8 +40,10 @@ const useUpdateToDo = () => {
                         }
                     }
                     return old;
-                })
-            );
+                });
+
+                return oldToDo;
+            });
             return prevToDos;
         },
         onSettled: () => {

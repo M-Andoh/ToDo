@@ -1,14 +1,14 @@
 
 export type ToDoType = {
-    id: number;
-    title: string;
-    to_do_details: ToDoDetailType[];
+    id?: number | undefined;
+    title?: string | undefined;
+    to_do_details?: ToDoDetailType[] | undefined;
 };
 
 export type ToDoDetailType = { 
-    id: number;
-    to_do_id: number;
-    name: string;
-    completed_flag: boolean;
+    id?: number | undefined;
+    to_do_id?: number | undefined;
+    name?: string | undefined;
+    completed_flag?: boolean | undefined;
 }
 
