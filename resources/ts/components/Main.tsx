@@ -14,6 +14,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const client = new QueryClient();
 
 const Main = () => {
+    const debug = false;
     return (
         <Box>
             <Navigation />
@@ -25,7 +26,7 @@ const Main = () => {
                         <Route path="/" element={<Home />} />
                     </Routes>
                 </main>
-                <ReactQueryDevtools initialIsOpen={false} />
+                {debug && <ReactQueryDevtools initialIsOpen={false} />}
                 </QueryClientProvider>
             </Router>
         </Box>

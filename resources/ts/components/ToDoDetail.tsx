@@ -84,7 +84,10 @@ const ToDoDetail = (props: ToDoDetailProps) => {
                 <TextField
                     variant="standard"
                     margin="dense"
-                    defaultValue={props.detail.name}
+                    defaultValue={
+                        props.detail.name
+                    }
+                    placeholder="新規項目"
                     fullWidth
                     onChange={eventUpdateDetailTodo}
                 />

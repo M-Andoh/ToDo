@@ -22,6 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'to_do_id' => 'required | exists:to_dos,id',
             'name' => 'nullable | string',
             'completed_flag' => 'nullable | boolean',
         ];

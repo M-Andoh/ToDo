@@ -70,6 +70,7 @@ const ToDo = (props: ToDoProps) => {
                 <TextField
                     variant="standard"
                     margin="dense"
+                    placeholder="新規ToDo"
                     defaultValue={props.todo.title}
                     fullWidth
                     onChange={eventUpdateTodo}
